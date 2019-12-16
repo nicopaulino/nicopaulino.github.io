@@ -12,10 +12,11 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  // make a for loop that will print each index of an array;
+    for (var i = 0; i < array.length; i++) {
+       console.log(array[i]);
+    }
+    
   // YOUR CODE ABOVE HERE //
 }
 
@@ -25,8 +26,11 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
-  
+  // make a loop that will print all of the indexes of my array in reverse
+     for (var i = array.length - 1; i > -1; i--) {
+       console.log(array[i]);
+    }
+    
   
   
   // YOUR CODE ABOVE HERE //
@@ -37,7 +41,8 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
+  // use Object.keys() to get the keys of any object
+  return Object.keys(object);
   
   
   
@@ -50,10 +55,12 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+ // Use Object.keys to get the key of any object
+ //Put it in console.log so it prints to the console.
+const keys = Object.keys(object) 
+  for (const key of keys) {
+    console.log(key) 
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -62,8 +69,8 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  // use object.values to put all of the vaues into an array
+    return Object.values(object);
   
   
   // YOUR CODE ABOVE HERE //
@@ -75,7 +82,12 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  // create var keys and initialize it with the values of the object
+  var keys = Object.values(object) 
+  //make a for in loop that prints each value separately
+  for (var key of keys) {
+    console.log(key) 
+  }
   
   
   
@@ -87,8 +99,14 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  // declare variable size and initailize it 0
+   var size = 0;
+   //make for in loop that checks if each key of the object has its own property
+   //increase size for each key that hasownproperty
+    for (var key in object) { 
+        if (object.hasOwnProperty(key)) size++;
+    }
+    return size;
   
   
   // YOUR CODE ABOVE HERE //
@@ -100,7 +118,12 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
+   // create var value and initialize it with the values of the object
+  var values = Object.values(object) 
+  //make a for in loop that prints each value separately
+     for (var i = values.length - 1; i > -1; i--) {
+       console.log(values[i]);
+    }
   
   
   

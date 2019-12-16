@@ -14,7 +14,9 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    //declare variable arrayTest and initialize it to see if my vaue is an object 
+    let arrayTest = Array.isArray(value);
+    return arrayTest;
     
     
     
@@ -31,10 +33,19 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    // make an if statement for if value is an Array
+   if (Array.isArray(value)) {
+       return false; 
+     // Next check and see if its null
+   } else if (value == null) {
+         return false;
+    // check if it is a date
+   } else if (typeof(value) == "object" && value instanceof Date) {
+       return false;
+       //check if it is a true object
+   } else if (typeof(value) == "object") {
+       return true;
+   } else return false;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -46,9 +57,20 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    //make an if statement to see if my value is an array
+   if (Array.isArray(value)) {
+       return true; 
+   } else if (value == null) {
+       // check if its null
+         return false;
+   } else if (typeof(value) == "object" && value instanceof Date) {
+     //check if its a date
+     return false;
+     //check if its a true object
+   } else if (typeof(value) == "object") {
+       return true;
+   } else return false;
+
     
     // YOUR CODE ABOVE HERE //
 }
@@ -74,11 +96,17 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //Do all of the first steps as my isObject but have them return their data type
+ if (Array.isArray(value)) {
+       return "array"; 
+   } else if (value == null) {
+         return "null";
+   } else if (typeof(value) == "object" && value instanceof Date) {
+       return "date";
+   } else if (typeof(value) == "object") {
+       return "object";
+      // for all other types just use typeof
+   } else return typeof(value);
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

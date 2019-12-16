@@ -111,10 +111,10 @@ function endsWith(string, char) {
   var paraOne = string.toUpperCase();
 var paraTwo = char.toUpperCase();
 // Make an if statement that will allow me to check if the string ends with a specific character
-    if (paraOne[0] === paraTwo) {
+    if (paraOne[paraOne.length - 1] === paraTwo) {
     return true
 } 
-// make an else statement to return false if the string[0]  and char aren't the same 
+// make an else statement to return false if the string[paraOne.length - 1]  and char aren't the same 
     else { return false}
 
     // YOUR CODE ABOVE HERE //
@@ -173,7 +173,7 @@ var paramTwo = stringTwo.length;
 if (paramOne > paramTwo) {
     return stringOne;
 } 
- else { return paramTwo
+ else { return stringTwo
 }
 
 
@@ -190,9 +190,17 @@ if (paramOne > paramTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    var value;
+ if (stringOne < stringTwo) {
+     value = 1; 
+ }            
+ else if (stringOne > stringTwo) {
+     value = -1;
+ }
+ else if (stringOne == stringTwo) {
+     value = 0;
+ }
+ return value;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -206,6 +214,17 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+        var value;
+ if (stringOne > stringTwo) {
+     value = 1; 
+ }            
+ else if (stringOne < stringTwo) {
+     value = -1;
+ }
+ else if (stringOne == stringTwo) {
+     value = 0;
+ }
+ return value;
 
 
 

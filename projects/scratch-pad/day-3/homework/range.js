@@ -23,12 +23,28 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+    //initialize var rangeArray and declare it an Array
+     var rangeArray = [];
+     // make an if statement for if the start param is lower than end
+    if (start < end) { 
+    //make a for loop that runs number from start to end
+    for (var i = start; i < end + 1; i++){ 
+    // push i into the rangeArray array
+        rangeArray.push(i);
+        } return rangeArray;
+    // make an else if statement for if end is lower than start
+    } else if (start > end) {
+    //make a for loop that runs numbers from end to start
+        for (var i = start; i > end - 1; i--){
+    // push i into rangeArray
+            rangeArray.push(i);
+            } return rangeArray;
+    } 
+    }
     
     
     // YOUR CODE GOES ABOVE HERE //
-}
+
 
 
 

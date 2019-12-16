@@ -12,6 +12,16 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+for (var i=1; i < 101; i++){
+    //make an if else if statement
+    //use mode to get numbers divisible by 15 to print fizzbuzz
+    //use mode to get numbers divisible by 3 to print buzz
+    //use mode to get numbers divisible by 5 to print fizz
+    if (i % 15 == 0) console.log("FizzBuzz");
+    else if (i % 3 == 0) console.log("Fizz");
+    else if (i % 5 == 0) console.log("Buzz");
+    else console.log(i); 
+}
 
 
 
