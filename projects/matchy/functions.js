@@ -15,7 +15,7 @@
 // Implement a function called search with a signature of search(animals, name) { //... } that:
 function search(animals, name) {
 // Takes a paramater representing an Array of animals.
-    for (var i = 0; i < animals.length; i++) {
+    for (let i = 0; i < animals.length - 1; i++) {
         if (animals[i]["name"] === name) {
             return animals[i];
         }
@@ -34,26 +34,56 @@ function search(animals, name) {
 //////////////////////////////////////////////////////////////////////
 // Write a function called replace with a signature of replace(animals, name, replacement) { //... } that:
 function replace(animals, name, replacement) {
-// Takes 3 parameters, an Array of animals, a name of an animal on which to perform a search, and an Object that represents the replacement animal.
+// Takes 3 parameters, an Array, a name of an animal, and an Object that represents the replacement animal.
 
+    for (let i = 0; i < animals.length - 1; i++) {
+        if (animals[i]["name"] === name) {
+    // splice the new object into my animals array
+           animals.splice(animals[i], 1, replacement);
+        }
+    }
 // If an animal with that name exists within the animals Array, replace it’s entire Object with the replacement Object.
 
 // Otherwise do nothing.
 
-// Test it on the website.
 }
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// Write a function called remove with a signature of remove(animals, name) that:
 
+// Takes 2 parameters, an Array of animals, and a name of an animal on which to perform a search.
+function remove(animals, name) {
+// If an animal with that name exists within the animals Array, remove it.
+      for (let i = 0; i < animals.length - 1; i++) {
+        if (animals[i]["name"] === name) {
+    // splice the new object into my animals array
+           animals.splice(animals[i], 1);
+        }
+    }
+// Test that it works on the website.
 
-
+}
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Create ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+function add(animals, animal) {
+//declare conditional that checks to see animal has name and species greater than 0
+    if (animal.name.length > 0 && animal.species.length > 0) {
+// declare for loop that runs through animals array
+        for (let i = 0; i < animals.length; i++) {
+//declare another condtitional inside conditional that checks if animal has the same name as another animal
+            if (animals[i].name === animal.name) {
+//return nothing if true
+                return;
+            }
+        }
+//push animal object into animals if not true
+        animals.push(animal);
+    }
+}
 
 /**
  * You did it! You're all done with Matchy!

@@ -106,8 +106,6 @@ console.log(animals);
 //////////////////////////////////////////////////////////////////////
 //  Choose a data structure for this list of friends.
 
-// [ ] Write a comment in your code that explains why you chose this data structure.
-
 // I chose an array so it can show the names of the friends.
 
 // [ ] Create a variable called friends and assign it to the data structure that you chose.
