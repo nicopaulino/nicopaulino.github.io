@@ -22,15 +22,13 @@
         console.log(myStringThree); //prints "Hello Nico, nice to meet you!"
         // Note: you can't use (-) or other arithemetic operators similarly.
         
+        //You can also use the += operator as a more efficient way of doing the name thing.
+        var message = "Howdy yall, ";
+        message += "how bout them Cowboys?";
+        console.log(message); // prints => "Howdy yall, how bout them Cowboys?"
+        
     //STRING MANIPULATION USING METHODS
     
-        //.length
-            
-            /* You can use the .length method on any string and it will provide the length
-            * of your entire string.
-            */
-            console.log(myStringThree.length); //prints => 29
-            
         //indexOf()
         
             /* The indexOf method will return the index number of the first occurence
@@ -51,8 +49,30 @@
             * It then slices out a part of a string and returns the extracted part in a new string.
             */
             var myStringFour = myStringThree.slice(6, 10);
-            console.log(myStringFour); //prints "Nico"
+            console.log(myStringFour); //prints => "Nico"
+        
+        //concat()
             
+            //This method joins two strings together, similar to adding them.
+            var str1 = "Who ";
+            var str2 = "Dat!";
+            var str3 = str1.concat(str2);
+            console.log(str3); //prints => "Who Dat!"
+            
+        //charAt()
+        
+            //This method return a specific character at the specified index.
+            var str4 = str3.charAt(0);
+            console.log(str4); // prints => "W"
+            
+        //split()
+        
+            //The split() method splits a string into an array of many substrings.
+            //In the parenthese you put whatever character you want to be replaced with where the array index splits.
+            //Usually this is a space.
+            
+            var split = str3.split(" ");
+            console.log(split); // prints => ["Who", "Dat!"]
             
             
             

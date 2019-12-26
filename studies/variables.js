@@ -63,12 +63,18 @@ myVariable = "someString";
 //HOISTING
 
     /* 0. When a variable is hoisted, it means that the declaration of the variable 
-    * is sent to the top of the coding when the computer reads it.
+    * is sent to the top of the code (the imaginary 0th line that the computer reads first).
     *
-    * 1. For var, let, and const variables, ONLY the declaration of the variable 
+    *
+    * 1. For variables declared with var, ONLY the declaration of the variable 
     * is hoisted to the top. The value of the variable isn't available until the 
     * line it's initialized. 
     */
     console.log(food); //prints => undefined
     var food = "yummy"; 
     console.log(food); // prints => "yummy"
+    
+    // Variables declared with const or let DO NOT hve their declaration or assignment hoisted.
+    console.log(hello);
+    const hello = "Hello, good sir";
+    console.log(hello); // prints => Refernece Error: hello is not defined.

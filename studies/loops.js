@@ -22,8 +22,9 @@
 //WHILE LOOPS 
     
     //Loops through a block of code as long as a specified condition is true.
-    var whileLoop = 1;
-    while (whileLoop < 10) {
+    var whileLoop = 1; // This is the starting condition.
+    while (whileLoop < 10) // This is the stopping condition. The loop will run until this isn't true.
+    { // The iterator must be located here in order to prevent an infinite loop.
         console.log(whileLoop++);
     }// prints numbers 1 - 9 on separate lines 
     
@@ -39,7 +40,15 @@
     
     // Loops through the properties of an object.
     var me = {"firstName": "Nico", "lastName": "Paulino"}; 
-    for (var key in me) {console.log(me[key])} // prints => "Nico" "Paulino"
+    for (var key in me) // This assigns a variable, usually named key.
+    // Then you put "in (object)".
+    //This is saying, for every key that is in this object, do this:
+    {console.log(me[key])} //This prints every value that is in the object.
+        // prints => "Nico" "Paulino"
+        
+    // To loop through the keys of an object, you can ue the Object.keys method.
+    var keys = Object.keys(me); //Put the object name in the parentheses.
+    console.log(keys); // prints => ['firstName', 'lastName'];
     
 //LOOPING OVER AN ARRAY
 
@@ -51,3 +60,13 @@
     var myStringArray = ["Hello","World", "This", "Is", "My", "String"];
     for (var i = 0; i < myStringArray.length; i++) {
     console.log(myStringArray[i]) } //prints ever index of the string on a separate line
+    
+    /* To loop backwards over an array is very similar, you must:
+    * - set your starting condition to yourArrayHere.length -1
+    * - set stopping condition to i >= 0
+    * - set incrementer to i-- 
+    */
+    for (var i = myStringArray.length - 1; i >= 0; i--) {
+        console.log(myStringArray[i]);
+    } // prints every index on the string backwards on separate lines
+    

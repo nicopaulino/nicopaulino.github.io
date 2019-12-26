@@ -5,7 +5,7 @@
 * 0. Functions are reusabe blocks of code that accept inputs, process them, and return
 *    a new data value.
 *
-* 1. Functiona are defined with the function keyword, followed by a name, 
+* 1. Functions are defined with the function keyword, followed by a name, 
 * followed by parentheses ().
 * 
 * 2. The parameter may include parameter names separated by commas. 
@@ -25,9 +25,6 @@
 * 
 * 9. Functions don't have to return a value, they can print something to the console, 
 *   change a variable, etc.
-*
-* 10. Closures in functions control what is and isn’t in scope in a function,
-* along with which variables are shared in the same containing scope.
 */
 
 function add(a, b) {
@@ -41,3 +38,38 @@ var myFunction = function(a, b) {
     return a - b;
 };
 console.log(myFunction(4, 2)); // prints => 2
+
+//Functions do not need to input any arguments to run. 
+function printFive() {
+  console.log(5);
+}
+printFive(); //prints => 5
+
+// Funtions also do not need a return statement for their output.
+function multiply(a, b) {
+    console.log(a * b);
+}
+multiply(5, 2); //prints => 10
+
+/*Each function has its own scope, meaning that variables assigned in a function can't be accessed
+* outside of the function.
+*/
+ function subtract(a, b) {
+     var mySub = a - b;
+     return mySub;
+ }
+ console.log(mySub) // prints => Reference error: mySub is not defined
+ 
+ /*Closures make it possible for functions to have "private" variables.
+ * They help to dictate what is and isn't in the proper scope.
+ * All functions form closures
+ */
+ function myName() {
+     var name = "Nico Paulino"; //The variable name is inside myName function.
+    function printMyName() {
+        console.log(name); //Even though there is no name variable in this scope, it has access to the parent scope.
+    }
+    return printMyName(); //Outside of the second function we are going to return it.
+ }
+ var myNameVar = myName();
+ myNameVar(); // prints => "Nico Paulino"
