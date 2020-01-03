@@ -411,7 +411,18 @@ _.pluck = function(array, prop) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+ 
+_.every = function(collection, func) {
+//create a variabe with check
+//Using the OR logical operator, if the func paramter is undefined (falsey) it will return the value 
+    var check = func || _.identity; 
+    for (var i = 0; i < collection.length; i++) { //run for loop thru collection
+        if (!check(collection[i])) { //if collection[i] doesnt pass check return false
+            return false;
+        }
+    }
+    return true; //otherwise return true
+  };
 
 /** _.some
 * Arguments:
@@ -434,6 +445,23 @@ _.pluck = function(array, prop) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func) {
+     // very similar to above, except we're returning true if even one of them is true
+   if (typeof func !== 'function') {
+       for (let element of collection) {
+           // remove the bang operator and return true
+           if (element) return true; //return true
+       }
+        return false; //otherwise return false
+   }
+ let mapArr = _.map(collection, (element, position, collection) => func(element, position, collection));
+   for (let ele of mapArr) {
+       // take away the bang operator from above and return true, so if one is found, it returns true.
+       if (ele) return true; //return true
+   }
+   return false; //otherwise return false
+};
+
 
 /** _.reduce
 * Arguments:
@@ -454,6 +482,24 @@ _.pluck = function(array, prop) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+    let current = seed;
+    // if current is not defined, we set current equal to the arrays 0 index
+    if (current === undefined){
+        current = array[0];
+        // for loop to go through the array
+        for (let i = 1; i < array.length; i++){
+            // current will be equal to the function being performed on the value
+            current = func(current, array[i], i);
+        }
+        return current; //return current
+    }
+    // if a seed is provided, we do a for loop, and use the function on the current(seed) and continue through
+    for (let i = 0; i < array.length; i++){
+       current = func(current, array[i], i);
+    }
+    return current; // return current
+};
 
 /** _.extend
 * Arguments:
@@ -470,6 +516,14 @@ _.pluck = function(array, prop) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
+_.extend = function(obj) {
+ _.each(arguments, function(item){ //takes _.each with arguments and function as parameters
+  _.each(item, function(value, prop){ //_.each inside of each with different parameters
+   obj[prop] = value; //objectproperty = value
+  });
+ });
+ return obj; //return obj
+};
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
