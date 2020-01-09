@@ -416,8 +416,10 @@ _.every = function(collection, func) {
 //create a variabe with check
 //Using the OR logical operator, if the func paramter is undefined (falsey) it will return the value 
     var check = func || _.identity; 
-    for (var i = 0; i < collection.length; i++) { //run for loop thru collection
-        if (!check(collection[i])) { //if collection[i] doesnt pass check return false
+    for (var i = 0; i < collection.length; i++) { 
+//run for loop thru collection
+        if (!check(collection[i])) { 
+//if collection[i] doesnt pass check return false
             return false;
         }
     }
