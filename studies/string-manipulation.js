@@ -7,10 +7,13 @@
 *   concat strings with other strings.
 *
 *   2. there are several different methods that manipulate strings, including:
-*        - (.length)
+*
 *        - (indexOf())
 *        - (search())
 *        - (slice())
+*        - (concat())
+*        - (charAt())
+*        - (split())
 */
 
     //STRING MANIPULATION USING OPERATORS

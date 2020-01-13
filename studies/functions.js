@@ -60,9 +60,11 @@ multiply(5, 2); //prints => 10
  }
  console.log(mySub) // prints => Reference error: mySub is not defined
  
- /*Closures make it possible for functions to have "private" variables.
+ /* Closures are the combination of a function with references 
+ * to its surrounding state. A closure gives you 
+ * access to the global scope or variables in a parent scope. 
  * They help to dictate what is and isn't in the proper scope.
- * All functions form closures
+ * All functions form closures'
  */
  function myName() {
      var name = "Nico Paulino"; //The variable name is inside myName function.
