@@ -8,25 +8,28 @@ var factorial = function(n) {
   //declare conditionl that checks if n is negative
   if (n < 0) {
 //if true return null
-    return null;
+return null;
+}
 //if not check if the number equals 0
-  } else if (n === 0) {
+else if (n === 0) {
 //if true return 1
-    return 1;
-  }
+ return 1;
+} 
 //return the number multiplied by the function with number - 1 as the argument
-  return n * factorial(n - 1);
+ return n * factorial(n - 1);
+
 };
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 let sum = array => {
   //set base case that checks if the length of the array is 0
-  if (array.length === 0) {
+  if (!array.length) {
 //if true return 0
-    return 0;
+return 0;
+} else
 //else return the first index of the array plus calling the array with the first index taken off
-  } return array[0] + sum(array.slice(1));
+return array[0] + sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -152,12 +155,19 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = string => {
- string = string.toLowerCase();
+//change string arg to equal string but lowercased and trimmed, so it will not worry about capital letters and spaces
+ string = string.toLowerCase().trim();
+ //set base case to see if the length of the string is 1.
+ //If its only 1 character it has to be a palindrome
   if(string.length === 1){
     return true;
-  }else if(string[0] !== string[string.length-1]){
+//if not check if the first index in the string ISNT the same as the last index of the string
+//if thats the case the function will stop here
+  }else if(string[0] !== string[string.length - 1]){
+//if so return false
     return false;
   }
+//if not return the function and run it again with the first and last idices sliced off
     return palindrome(string.slice(1,-1));
 };
 
@@ -392,18 +402,23 @@ var flatten = function(arrays) {
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
 var letterTally = function(str, obj) {
-  //GET HELP ON THIS ONE
+  //declare var reult and assign it to a new array, or an empty object
     let result = Array.from(arguments)[1] || {};
-    if(str.length === 0) {
+//declare conditional and check if the string arg's length is 0
+    if(!str.length) {
+//if true return result
         return result;
     }
+//then check if there's no first arg from string in result
     if(!result[str[0]]) {
+//if true create it assign it to 1
         result[str[0]] = 1;
     } else
      {
-        console.log(result[str[0]], 'hey');
+//if it does exist then increment it 
         result[str[0]]++;
     }
+//return the function and slice off the first index of the string arg and set result as the obj parameter
     return letterTally(str.slice(1), result);
 };
 
@@ -413,19 +428,17 @@ var letterTally = function(str, obj) {
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list) {
-//GET HELP ON THIS
-  let result = [];
-   if (list.length === 0) {
-            return result;
-        } 
-        if (list.length === 1) {
-            result.push(list[0]);
-            return result;
-        }
-        if (list[0] !== list[1]) {
-            result.push(list[0]);
-        }
-        return compress(list.slice(1), result);
+//set your base case that checks if the length of list is 0
+if (!list.length) {
+//if true return an empty array
+    return [];
+//then check if the first index in list is the same as the next index
+} else if (list[0] === list[1]) {
+//if it is slice off the first index and run the function again
+    return (compress(list.slice(1)));
+} else 
+//if it is save the first index and concat it and run the function again, but slice off the first index
+ return  [list[0]].concat(compress(list.slice(1)));
     };
 
 
@@ -459,51 +472,54 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
-    if (array.length === 0) { return array; }
+//set base case and check if the array length is 0
+    if (!array.length) { 
+//if true return the array
+        return array; 
+        }
+// then check if the first index is negative
     if(array[0] < 0) { 
+//if it is change that index's sign so it's positive
       array[0] = -array[0]; 
     }
-    if(array[1] > 0) { array[1] = -array[1]; }
+//then check if the second index is positive
+    if(array[1] > 0) { 
+//if it is change the sign so that its negative
+        array[1] = -array[1]; 
+        }
+//then return the first two indices and concat it with the function ran but slice off the first two indices
     return [array[0], array[1]].concat(alternateSign(array.slice(2)));
 };
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
-      //create an object with num: value pair
-    var myObj = {
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five',
-        6: 'six',
-        7: 'seven',
-        8: 'eight',
-        9: 'nine',
-        0: 'zero'
-    };
-    //create variable set result to empty string
-    var result = "";
-    
-  //base case
-    if (str.length === 0) {
-        return result;
-    } else {
-        var currentChar = str.charAt(0);
-        if(myObj[currentChar]) {
-            result = result + myObj[currentChar]
-        }
-        else {
-            result = result + currentChar;
-        }
-    //return the recursive function with the substring 
-        return numToText(str.slice(1));
-        }
-    //call the recursive helper with str as input
-    // numToText(str);    
-    //finally return the result
-    return result;
+//declare base case that checks if the string length is 1 AND if the string is an empty string
+	if (str.length === 1 && str === ' ') {
+//if its true return the string
+	  return str;
+//If not check if theres no string 
+	} else if (!str) {
+//if so return an empty string
+		return '';
+	} else 
+//declare var numArr and assign it to an array of strings of numbers 0 - 9
+//
+	var numArr = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+//declare variable numObj and assign it to an empty object
+	let numObj = {};
+//Loop through every index in numArr
+	for (var i = 0 ; i < numArr.length ; i++) {
+//Then have the i index in numObj equal the i index of numArr
+			numObj[i] = [numArr[i]];
+	}
+//declare var char and assign it to the first index of the str argument
+	let char = str[0];
+//then assign char to a ternary operator that checks if char is the same as the first idex of numObj
+//if it is it will add an empty string to it. If not it will return char
+	char = numObj[char] ? numObj[char] + '' : char;
+//return char plus calling the function with the first index of string sliced off
+	return char + numToText(str.slice(1));
 };
 
 // *** EXTRA CREDIT ***
