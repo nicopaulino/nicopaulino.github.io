@@ -47,21 +47,35 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-//set base case and check if the number is 0
-  if (n === 0) {
-//if true return 0
-    return true;
-//check other base case and see if the number is 1
-  } else if (n === 1) {
-//if true return false
-    return false;
-//check if the number is negative
+  if(n === 0){
+      return true;
+  }  else if (n === 1) {
+      return false;
   } else if (n < 0) {
-//if true return the function with the number turned positive
-    return isEven(-n);
-// if the number is postivie return the function with the number minus two
-  } else return isEven(n - 2);
+      return isEven(-n);
+  }
+    return isEven(n - 2);
+    
+    
+    
+    
+    
 };
+// //set base case and check if the number is 0
+//   if (n === 0) {
+// //if true return 0
+//     return true;
+// //check other base case and see if the number is 1
+//   } else if (n === 1) {
+// //if true return false
+//     return false;
+// //check if the number is negative
+//   } else if (n < 0) {
+// //if true return the function with the number turned positive
+//     return isEven(-n);
+// // if the number is postivie return the function with the number minus two
+//   } else return isEven(n - 2);
+// };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
